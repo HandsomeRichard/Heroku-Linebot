@@ -35,6 +35,23 @@ def callback():
 
     return 'OK'
 
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    print(event)
+    text=event.message.text
+
+    if (text=="Hi"):
+        reply_text = "Hello"
+        #Your user ID
+
+    elif(text=="你好"):
+        reply_text = "哈囉"
+    elif(text=="機器人"):
+        reply_text = "叫我嗎"
+    else:
+        reply_text = text
+#如果非以上的選項，就會學你說話
+
 
 
 
