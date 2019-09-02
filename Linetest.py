@@ -40,9 +40,48 @@ def handle_message(event):
     print("richard OKOK")
     if (event.reply_token ==  '00000000000000000000000000000000'):#加這一條讓機器人被加好友時，不會回傳錯誤
 	    return None
+    text = event.message.text
+    print(text)
+    
+    if text == 'profile':
+        if isinstance(event.source, SourceUser):  #isinstance() 函数来判断一个对象是否是一个已知的类型，类似 type()。
+            profile = line_bot_api.get_profile(event.source.user_id)
+            line_bot_api.reply_message(
+                event.reply_token, [
+                    TextSendMessage(text='Display name: ' + profile.display_name),
+                    TextSendMessage(text='Status message: ' + profile.status_message)
+                ]
+            )
+        else:
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="Bot can't use profile API without user ID"))
+
+
+@handler.add(FollowEvent)
+def handle_follow(event):
+    
     line_bot_api.reply_message(
-    event.reply_token,
-    TextSendMessage(text=event.message.text))
+        event.reply_token, TextSendMessage(text='Got follow event'))
+
+
+@handler.add(UnfollowEvent)
+def handle_unfollow():
+    app.logger.info("Got Unfollow event")
+
+
+@handler.add(JoinEvent)
+def handle_join(event):
+    print('event.source.joined.members.type = '+event.source.joined.members.type)
+    print('event.source.joined.members.userId = '+event.source.joined.members.userId)
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text='Joined event.source.type= ' + event.source.type))
+
+
+@handler.add(LeaveEvent)
+def handle_leave():
+    app.logger.info("Got leave event")
 
 
 import os
