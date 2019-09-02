@@ -60,10 +60,10 @@ def handle_message(event):
 
 @handler.add(FollowEvent)
 def handle_follow(event):
-    print('event.source.type = '+event.source.type)
-    print('event.source.userId = '+event.source.userId)
     line_bot_api.reply_message(
         event.reply_token, TextSendMessage(text='Got follow event'))
+    print('event.source.type = '+event.source.type)
+    print('event.source.userId = '+event.source.userId)
     #follow event:當群組加入好友會收到此Message
     #可以reply message給使用者 You can reply to follow events.
 
