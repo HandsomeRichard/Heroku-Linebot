@@ -82,8 +82,8 @@ def handle_follow(event):
 
 @handler.add(UnfollowEvent)
 def handle_unfollow(event):
-    print('event.source.type = '+event.source.type)
-    print('event.source.userId = '+event.source.userId)
+    print('event.type = '+event.type)
+    print('event.userId = '+event.userId)
     app.logger.info("Got Unfollow event")
     #使用者封鎖群組:會觸發此event!
 
