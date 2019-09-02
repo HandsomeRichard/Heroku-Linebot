@@ -60,7 +60,6 @@ def handle_message(event):
 
 @handler.add(FollowEvent)
 def handle_follow(event):
-    
     line_bot_api.reply_message(
         event.reply_token, TextSendMessage(text='Got follow event'))
 
