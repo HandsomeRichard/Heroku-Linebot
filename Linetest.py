@@ -38,6 +38,8 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     print("richard OKOK")
+    if (event.reply_token ==  '00000000000000000000000000000000'):#加這一條讓機器人被加好友時，不會回傳錯誤
+	    return None
     line_bot_api.reply_message(
     event.reply_token,
     TextSendMessage(text=event.message.text))
