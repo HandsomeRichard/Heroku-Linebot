@@ -60,20 +60,20 @@ def handle_message(event):
 
 @handler.add(FollowEvent)
 def handle_follow(event):
-    print('event.source.joined.members.type = '+event.source.joined.members.type)
-    print('event.source.joined.members.userId = '+event.source.joined.members.userId)
-    #follow event:當群組加入好友會收到此Message
-    #可以reply message給使用者 You can reply to follow events.
+    print('event.source.type = '+event.source.type)
+    print('event.source.userId = '+event.source.userId)
     line_bot_api.reply_message(
         event.reply_token, TextSendMessage(text='Got follow event'))
+    #follow event:當群組加入好友會收到此Message
+    #可以reply message給使用者 You can reply to follow events.
 
 
 @handler.add(UnfollowEvent)
 def handle_unfollow(event):
-    print('event.source.source.type = '+event.source.source.type)
-    print('event.source.source.userId = '+event.source.source.userId)
-    #使用者封鎖群組:會觸發此event!
+    print('event.source.type = '+event.source.type)
+    print('event.source.userId = '+event.source.userId)
     app.logger.info("Got Unfollow event")
+    #使用者封鎖群組:會觸發此event!
 
 
 @handler.add(JoinEvent)
