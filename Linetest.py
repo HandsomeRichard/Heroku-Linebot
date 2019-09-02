@@ -72,9 +72,9 @@ def handle_message(event):
 
 @handler.add(FollowEvent)
 def handle_follow(event):
-    print('1. event.source = '+event.source)
-    print('2. event.source.type = '+event.source.type)
-    print('3. event.source.userId = '+event.source.userId)
+    print('In FollowEvent')
+    print('event.source.type = '+event.source.type)
+    print('event.source.user_id = '+event.source.user_id)
     line_bot_api.reply_message(
         event.reply_token, TextSendMessage(text='Got follow event'))
     #follow event:當群組加入好友會收到此Message
@@ -83,8 +83,9 @@ def handle_follow(event):
 
 @handler.add(UnfollowEvent)
 def handle_unfollow(event):
-    print('handle_unfollow 1. event.type = '+event.type)
-    print('handle_unfollow 2. event.source.userId = '+event.source.userId)
+    print('In UnfollowEvent')
+    print('event.type = '+event.type)
+    print('event.source.user_id = '+event.source.user_id)
     app.logger.info("Got Unfollow event")
     #使用者封鎖群組:會觸發此event!
 
