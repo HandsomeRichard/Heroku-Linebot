@@ -68,6 +68,14 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text="Bot can't use profile API without user ID"))
+                
+    if text == 'richard'
+        try:
+            line_bot_api.push_message('Uc5f19fe0c070f334469ec46bfd3ddd5a', TextSendMessage(text='HandsomeGuy'))
+            #Uc5f19fe0c070f334469ec46bfd3ddd5a myuid
+        except LineBotApiError as e:
+            print(e)
+        
 
 
 @handler.add(FollowEvent)
