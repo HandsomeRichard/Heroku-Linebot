@@ -83,7 +83,6 @@ def handle_message(event):
             duration=10
             )
             line_bot_api.reply_message(event.reply_token, message)
-            #Uc5f19fe0c070f334469ec46bfd3ddd5a myuid
         except LineBotApiError as e:
             print(e)
         
