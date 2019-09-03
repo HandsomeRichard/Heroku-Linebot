@@ -75,6 +75,17 @@ def handle_message(event):
             #Uc5f19fe0c070f334469ec46bfd3ddd5a myuid
         except LineBotApiError as e:
             print(e)
+            
+    if text == 'okayudio':
+        try:
+            message = AudioSendMessage(
+            original_content_url='https://s108.123apps.com/aconv/d/s108QZPJOZ5f.m4a',
+            duration=10
+            )
+            line_bot_api.reply_message(event.reply_token, message)
+            #Uc5f19fe0c070f334469ec46bfd3ddd5a myuid
+        except LineBotApiError as e:
+            print(e)
         
 
 
