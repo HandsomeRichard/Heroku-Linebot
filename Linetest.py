@@ -80,7 +80,7 @@ def handle_message(event):
         try:
             message = AudioSendMessage(
             original_content_url='https://drive.google.com/open?id=1CMQaz-jjYeGqRQdywa6WR2nJtNwz59jO',
-            duration=10
+            duration=1000
             )
             line_bot_api.reply_message(event.reply_token, message)
         except LineBotApiError as e:
