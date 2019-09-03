@@ -79,7 +79,7 @@ def handle_message(event):
     if text == 'okayudio':
         try:
             message = AudioSendMessage(
-            original_content_url='https://s108.123apps.com/aconv/d/s108QZPJOZ5f.m4a',
+            original_content_url='https://drive.google.com/open?id=1CMQaz-jjYeGqRQdywa6WR2nJtNwz59jO',
             duration=10
             )
             line_bot_api.reply_message(event.reply_token, message)
