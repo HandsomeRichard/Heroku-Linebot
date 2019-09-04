@@ -90,13 +90,40 @@ def handle_message(event):
         flex_message = FlexSendMessage(
                 alt_text='hello',
                 contents=BubbleContainer(
-                direction='ltr',
-                hero=ImageComponent(
-                    url='https://upload.wikimedia.org/wikipedia/zh/thumb/4/4a/OK_Taiwan.svg/1200px-OK_Taiwan.svg.png',
-                    size='full',
-                    aspect_ratio='20:13',
-                    aspect_mode='cover',
-                    action=URIAction(uri='http://example.com', label='label')
+                    direction='ltr',
+                    body=BoxComponent(
+                    layout='vertical',
+                    contents=[
+                    # title
+                    TextComponent(text='有人找你', weight='bold', size='xl'),
+                    # info
+                    BoxComponent(
+                        layout='vertical',
+                        margin='lg',
+                        spacing='sm',
+                        contents=[
+                        BoxComponent(
+                            layout='baseline',
+                            spacing='sm',
+                            contents=[
+                                TextComponent(
+                                    text='類別',
+                                    color='#aaaaaa',
+                                    size='sm',
+                                    flex=1
+                                ),
+                                TextComponent(
+                                    text='休閒娛樂',
+                                    wrap=True,
+                                    color='#666666',
+                                    size='sm',
+                                    flex=5
+                                )
+                            ],
+                        ),
+                    ],
+                )
+            ],
                 )
             )   
         )
