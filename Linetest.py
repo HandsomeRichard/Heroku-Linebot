@@ -87,90 +87,19 @@ def handle_message(event):
             print(e)
     
     if text == 'flex':
-        flex_message ={
-          "type": "flex",
-          "contents": [
-            {
-              "type": "bubble",
-              "size": "nano",
-              "header": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "In Progress",
-                    "color": "#ffffff",
-                    "align": "start",
-                    "size": "md",
-                    "gravity": "center"
-                  },
-                  {
-                    "type": "text",
-                    "text": "70%",
-                    "color": "#ffffff",
-                    "align": "start",
-                    "size": "xs",
-                    "gravity": "center",
-                    "margin": "lg"
-                  },
-                  {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                      {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
-                          {
-                            "type": "filler"
-                          }
-                        ],
-                        "width": "70%",
-                        "backgroundColor": "#0D8186",
-                        "height": "6px"
-                      }
-                    ],
-                    "backgroundColor": "#9FD8E36E",
-                    "height": "6px",
-                    "margin": "sm"
-                  }
-                ],
-                "backgroundColor": "#27ACB2",
-                "paddingTop": "19px",
-                "paddingAll": "12px",
-                "paddingBottom": "16px"
-              },
-              "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": "Buy milk and lettuce before class",
-                        "color": "#8C8C8C",
-                        "size": "sm",
-                        "wrap": 'true'
-                      }
-                    ],
-                    "flex": 1
-                  }
-                ],
-                "spacing": "md",
-                "paddingAll": "12px"
-              },
-              "styles": {
-                "footer": {
-                  "separator": 'false'
-                }
-              }
-            }
-          ]
-        }
+        flex_message = FlexSendMessage(
+                alt_text='hello',
+                contents=BubbleContainer(
+                direction='ltr',
+                hero=ImageComponent(
+                    url='https://example.com/cafe.jpg',
+                    size='full',
+                    aspect_ratio='20:13',
+                    aspect_mode='cover',
+                    action=URIAction(uri='http://example.com', label='label')
+                )
+            )   
+        )
         line_bot_api.reply_message(event.reply_token, flex_message)
 
 
