@@ -92,7 +92,7 @@ def handle_message(event):
                 contents=BubbleContainer(
                 direction='ltr',
                 hero=ImageComponent(
-                    url='https://example.com/cafe.jpg',
+                    url='https://upload.wikimedia.org/wikipedia/zh/thumb/4/4a/OK_Taiwan.svg/1200px-OK_Taiwan.svg.png',
                     size='full',
                     aspect_ratio='20:13',
                     aspect_mode='cover',
