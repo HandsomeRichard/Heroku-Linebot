@@ -157,7 +157,7 @@ def handle_message(event):
                 "text": "Buy milk and lettuce before class",
                 "color": "#8C8C8C",
                 "size": "sm",
-                "wrap": true
+                "wrap": 'true'
               }
             ],
             "flex": 1
@@ -168,7 +168,7 @@ def handle_message(event):
       },
       "styles": {
         "footer": {
-          "separator": false
+          "separator": 'false'
         }
       }
     }
