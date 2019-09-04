@@ -127,15 +127,8 @@ def handle_message(event):
                 )
             )   
         )
-        line_bot_api.reply_message(event.reply_token, flex_message)
-        try:
-            message = AudioSendMessage(
-            original_content_url='https://s108.123apps.com/aconv/d/s108pN4B3gd2.m4a',
-            duration=1000
-            )
-            line_bot_api.reply_message(event.reply_token, message)
-        except LineBotApiError as e:
-            print(e)
+        message = AudioSendMessage(original_content_url='https://s108.123apps.com/aconv/d/s108pN4B3gd2.m4a',duration=1000)
+        line_bot_api.reply_message(event.reply_token, [flex_message,message])
 
 
 @handler.add(FollowEvent)
