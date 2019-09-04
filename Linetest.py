@@ -97,15 +97,15 @@ def handle_message(event):
                             "type":"第一組標題",
                             "actions": [
                                 {   "type":"message",
-                                    "label":"醫生"+"科別"+"診室"
+                                    "label":"醫生"+"科別"+"診室",
                                     "text":"1"
                                 },
                                 {   "type":"message",
-                                    "label":"時間"
+                                    "label":"時間",
                                      "text":"1"
                                 },
                                 {   "type":"message",
-                                    "label":"掛號號碼"
+                                    "label":"掛號號碼",
                                     "text":"1"
                                 },
                             ]
