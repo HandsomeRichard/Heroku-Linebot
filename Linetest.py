@@ -92,22 +92,24 @@ def handle_message(event):
                 "alertText": "alertText",
                 "template":{
                     "type":"carousel",
-                    "columes": [
-                        "type":"第一組標題",
-                        "actions": [
-                            { "type":"message",
-                               "label":"醫生"+"科別"+"診室"
-                               "text":"1"
-                            },
-                            { "type":"message",
-                               "label":"時間"
-                               "text":"1"
-                            },
-                            { "type":"message",
-                               "label":"掛號號碼"
-                               "text":"1"
-                            },
-                        ]
+                    "columns": [
+                        {
+                            "type":"第一組標題",
+                            "actions": [
+                                {   "type":"message",
+                                    "label":"醫生"+"科別"+"診室"
+                                    "text":"1"
+                                },
+                                {   "type":"message",
+                                    "label":"時間"
+                                     "text":"1"
+                                },
+                                {   "type":"message",
+                                    "label":"掛號號碼"
+                                    "text":"1"
+                                },
+                            ]
+                        }
                     ]
                 }
             }
