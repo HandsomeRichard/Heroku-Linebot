@@ -95,7 +95,7 @@ def handle_message(event):
                     layout='vertical',
                     contents=[
                     # title
-                    TextComponent(text='有人找你', weight='bold', size='xl'),
+                    TextComponent(text='有人找你喔', weight='bold', size='xl'),
                     # info
                     BoxComponent(
                         layout='vertical',
@@ -107,13 +107,13 @@ def handle_message(event):
                             spacing='sm',
                             contents=[
                                 TextComponent(
-                                    text='類別',
+                                    text='來電時間Time:',
                                     color='#aaaaaa',
                                     size='sm',
                                     flex=1
                                 ),
                                 TextComponent(
-                                    text='休閒娛樂',
+                                    text='王先生',
                                     wrap=True,
                                     color='#666666',
                                     size='sm',
@@ -128,6 +128,14 @@ def handle_message(event):
             )   
         )
         line_bot_api.reply_message(event.reply_token, flex_message)
+        try:
+            message = AudioSendMessage(
+            original_content_url='https://s108.123apps.com/aconv/d/s108pN4B3gd2.m4a',
+            duration=1000
+            )
+            line_bot_api.reply_message(event.reply_token, message)
+        except LineBotApiError as e:
+            print(e)
 
 
 @handler.add(FollowEvent)
