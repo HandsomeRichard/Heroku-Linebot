@@ -85,7 +85,33 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token, message)
         except LineBotApiError as e:
             print(e)
-        
+    
+    if text == 'customMessage':
+            message = {
+                "type": "template",
+                "alertText": "alertText",
+                "template":{
+                    "type":"carousel",
+                    "columes": [
+                        "type":"第一組標題",
+                        "actions": [
+                            { "type":"message",
+                               "label":"醫生"+"科別"+"診室"
+                               "text":"1"
+                            },
+                            { "type":"message",
+                               "label":"時間"
+                               "text":"1"
+                            },
+                            { "type":"message",
+                               "label":"掛號號碼"
+                               "text":"1"
+                            },
+                        ]
+                    ]
+                }
+            }
+            line_bot_api.reply_message(event.reply_token, message)
 
 
 @handler.add(FollowEvent)
